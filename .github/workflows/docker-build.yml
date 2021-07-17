@@ -1,8 +1,14 @@
-name: ci
+# This is a basic workflow to help you get started with Actions
+
+name: Docker Build and Push
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
 on:
   push:
-    branches:
-      - 'master'
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   docker:
@@ -28,4 +34,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: {{ YOUR_DOCKERHUB_REPOSITORY }}/python-helloworld:latest
+          tags: arthurzapatac/python-helloworld:latest
